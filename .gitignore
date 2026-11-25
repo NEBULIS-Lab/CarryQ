@@ -28,3 +28,9 @@ node_modules/
 web/public/franka/scene.xml
 web/public/franka/usb.xml
 web/public/franka/charger.xml
+
+# Published aggregate measurements used by the website
+!web/public/data/
+!web/public/data/**
+!docs/data/
+!docs/data/**
