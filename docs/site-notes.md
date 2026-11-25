@@ -141,7 +141,7 @@ aggregation. No smoothing or synthetic trial data are used.
 Replay and additional-task results stack in the left column, with closed-loop
 results on the right. They stack on narrower screens. Both real-robot bit widths and both outcome
 stages appear together. The Paper button serves the existing manuscript PDF.
-The public site lists Shuaijun Liu, Feiyang You, Chenglong Zhang and Ningxin Su,
+The public site lists Shuaijun Liu, Feiyang You, Chenglong Zhang, Shuyang Hao, Chengyu Wu and Ningxin Su,
 all at The Hong Kong University of Science and Technology (Guangzhou).
 Ningxin Su is the corresponding author. The arXiv identifier will be added when available.
 

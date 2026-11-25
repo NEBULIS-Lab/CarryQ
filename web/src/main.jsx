@@ -160,7 +160,7 @@ function Citation() {
   const [copied, setCopied] = useState(false);
   const bibtex = `@misc{carryq,
   title = {Beyond Pointwise Accuracy: Temporal Error Structure in Robot Action Tokenization},
-  author = {Liu, Shuaijun and You, Feiyang and Zhang, Chenglong and Su, Ningxin},
+  author = {Liu, Shuaijun and You, Feiyang and Zhang, Chenglong and Hao, Shuyang and Wu, Chengyu and Su, Ningxin},
   url = {https://nebulis-lab.com/CarryQ},
   note = {Manuscript; arXiv identifier forthcoming}
 }`;
@@ -180,7 +180,7 @@ function App() {
           <h1>Beyond Pointwise Accuracy:<br/><span>Temporal Error Structure in Robot Action Tokenization</span></h1>
           <p className="hero-description">CarryQ · Temporal residual-feedback action encoding</p>
           <div className="publication-people">
-            <p className="publication-authors"><span>Shuaijun Liu</span><span>Feiyang You</span><span>Chenglong Zhang</span><a href="mailto:ningxinsu@hkust-gz.edu.cn" aria-label="Ningxin Su, corresponding author">Ningxin Su<sup>*</sup></a></p>
+            <p className="publication-authors"><span>Shuaijun Liu</span><span>Feiyang You</span><span>Chenglong Zhang</span><span>Shuyang Hao</span><span>Chengyu Wu</span><a href="mailto:ningxinsu@hkust-gz.edu.cn" aria-label="Ningxin Su, corresponding author">Ningxin Su<sup>*</sup></a></p>
             <p className="publication-affiliation">The Hong Kong University of Science and Technology (Guangzhou)</p>
             <p className="publication-contact"><sup>*</sup> Corresponding author: <a href="mailto:ningxinsu@hkust-gz.edu.cn">ningxinsu@hkust-gz.edu.cn</a></p>
           </div>

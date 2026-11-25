@@ -16,7 +16,7 @@ try {
   assert.equal(await page.locator('.hero-intro').evaluate(element=>getComputedStyle(element).textAlign),'start');
   assert.ok(await page.locator('.hero-intro').evaluate(element=>element.getBoundingClientRect().height>300));
   assert.ok(!(await page.locator('main').innerText()).includes('Anonymous submission'));
-  assert.match(await page.locator('.publication-people').innerText(),/Shuaijun Liu.*Feiyang You.*Chenglong Zhang.*Ningxin Su.*The Hong Kong University of Science and Technology \(Guangzhou\)/s);
+  assert.match(await page.locator('.publication-people').innerText(),/Shuaijun Liu.*Feiyang You.*Chenglong Zhang.*Shuyang Hao.*Chengyu Wu.*Ningxin Su.*The Hong Kong University of Science and Technology \(Guangzhou\)/s);
   await page.screenshot({path:folder+'/hero.png'});
   await page.locator('#demo').screenshot({path:folder+'/workcell.png'});
 
@@ -63,7 +63,7 @@ try {
   await page.locator('#results').screenshot({path:folder+'/results.png'});
   await page.locator('#citation').screenshot({path:folder+'/citation.png'});
   assert.equal(await page.locator('.resources').count(),0);
-  assert.match(await page.locator('#citation code').innerText(),/Liu, Shuaijun.*You, Feiyang.*Zhang, Chenglong.*Su, Ningxin/s);
+  assert.match(await page.locator('#citation code').innerText(),/Liu, Shuaijun.*You, Feiyang.*Zhang, Chenglong.*Hao, Shuyang.*Wu, Chengyu.*Su, Ningxin/s);
 
   await page.setViewportSize({width:390,height:844});
   for(const [selector,name] of [['.hero-intro','hero'],['#demo','demo'],['.codeword-explorer','codewords'],['.reset-response','reset'],['#real','real'],['#results','results'],['#citation','citation']]) {

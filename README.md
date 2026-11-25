@@ -8,7 +8,7 @@
 
 ### CarryQ · Temporal Residual-Feedback Action Encoding
 
-Shuaijun Liu · Feiyang You · Chenglong Zhang · Ningxin Su<sup>✉</sup><br>
+Shuaijun Liu · Feiyang You · Chenglong Zhang · Shuyang Hao · Chengyu Wu · Ningxin Su<sup>✉</sup><br>
 The Hong Kong University of Science and Technology (Guangzhou)<br>
 <sup>✉</sup> Corresponding author: [ningxinsu@hkust-gz.edu.cn](mailto:ningxinsu@hkust-gz.edu.cn)
 
@@ -143,7 +143,7 @@ Run `npm test` to check the website logic and `npm run build:pages` to rebuild
 
 **Beyond Pointwise Accuracy: Temporal Error Structure in Robot Action Tokenization**
 
-Shuaijun Liu, Feiyang You, Chenglong Zhang and Ningxin Su.<br>
+Shuaijun Liu, Feiyang You, Chenglong Zhang, Shuyang Hao, Chengyu Wu and Ningxin Su.<br>
 [Read the manuscript](https://nebulis-lab.com/CarryQ/paper.pdf) ·
 [Read the supplementary material](https://nebulis-lab.com/CarryQ/appendix.pdf).
 The arXiv identifier will be added when available.
@@ -151,7 +151,7 @@ The arXiv identifier will be added when available.
 ```bibtex
 @misc{carryq,
   title = {Beyond Pointwise Accuracy: Temporal Error Structure in Robot Action Tokenization},
-  author = {Liu, Shuaijun and You, Feiyang and Zhang, Chenglong and Su, Ningxin},
+  author = {Liu, Shuaijun and You, Feiyang and Zhang, Chenglong and Hao, Shuyang and Wu, Chengyu and Su, Ningxin},
   url = {https://nebulis-lab.com/CarryQ},
   note = {Manuscript; arXiv identifier forthcoming}
 }
