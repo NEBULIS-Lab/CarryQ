@@ -22,3 +22,9 @@ runs/
 results/
 .env
 .env.*
+
+# Website dependencies and generated simulator scenes
+node_modules/
+web/public/franka/scene.xml
+web/public/franka/usb.xml
+web/public/franka/charger.xml

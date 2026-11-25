@@ -1,5 +1,5 @@
 include LICENSE README.md CONTRIBUTING.md
-graft docs
+include docs/api.md docs/integration.md
 graft examples
 graft tests
 global-exclude __pycache__ *.py[cod]
