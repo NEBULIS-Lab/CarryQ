@@ -1,35 +1,44 @@
 <div align="center">
 
-# CarryQ
+<a href="https://nebulis-lab.com/CarryQ/">
+  <img src="assets/carryq-application.gif" width="860" alt="CarryQ interactive application: a Franka robot approaches, aligns and inserts USB-C and charger connectors." />
+</a>
 
-### Temporal Residual-Feedback Action Encoding
+# Beyond Pointwise Accuracy: Temporal Error Structure in Robot Action Tokenization
 
-**Beyond Pointwise Accuracy: Temporal Error Structure in Robot Action Tokenization**
+### CarryQ · Temporal Residual-Feedback Action Encoding
 
-[![Tests](https://github.com/NEBULIS-Lab/shuaijun-feiyang-CVPR2027-CarryQ-code/actions/workflows/tests.yml/badge.svg)](https://github.com/NEBULIS-Lab/shuaijun-feiyang-CVPR2027-CarryQ-code/actions/workflows/tests.yml)
-[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](#installation)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Project Page](https://img.shields.io/badge/Project_Page-Coming_soon-7B61FF?logo=googlechrome&logoColor=white)](#project-page)
-[![arXiv](https://img.shields.io/badge/arXiv-Coming_soon-B31B1B?logo=arxiv&logoColor=white)](#paper)
+Shuaijun Liu · Feiyang You · Chenglong Zhang · Ningxin Su<sup>✉</sup><br>
+The Hong Kong University of Science and Technology (Guangzhou)<br>
+<sup>✉</sup> Corresponding author: [ningxinsu@hkust-gz.edu.cn](mailto:ningxinsu@hkust-gz.edu.cn)
+
+[![Project website](https://img.shields.io/badge/Website-CarryQ-8080FF?style=flat&labelColor=252A38&logo=googlechrome&logoColor=white)](https://nebulis-lab.com/CarryQ/)
+[![Tests](https://img.shields.io/github/actions/workflow/status/NEBULIS-Lab/CarryQ/tests.yml?branch=main&label=Tests&style=flat&labelColor=252A38&color=8080FF&logo=githubactions&logoColor=white)](https://github.com/NEBULIS-Lab/CarryQ/actions/workflows/tests.yml)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-8080FF?style=flat&labelColor=252A38&logo=python&logoColor=white)](#installation)
+[![License: MIT](https://img.shields.io/badge/License-MIT-8080FF?style=flat&labelColor=252A38)](LICENSE)
+[![arXiv](https://img.shields.io/badge/arXiv-Coming_soon-8080FF?style=flat&labelColor=252A38&logo=arxiv&logoColor=white)](#paper)
+
+[**Project website & interactive demo**](https://nebulis-lab.com/CarryQ/) · [**Paper**](https://nebulis-lab.com/CarryQ/paper.pdf) · [**Supplementary material**](https://nebulis-lab.com/CarryQ/appendix.pdf)
 
 </div>
 
-CarryQ adds temporal residual feedback to an existing action quantizer. At each
-step, it adds the previous encoding residual to the source command, selects a
-token from the same vocabulary, and uses the unchanged decoder. Residual state
-is reset at action-chunk boundaries.
+Small per-action quantization errors can reinforce each other over time.
+**CarryQ** feeds the remaining encoding residual into the next token choice,
+encouraging errors to cancel across an action sequence. It preserves the
+codebook, decoder and token budget of the underlying action interface.
 
-This repository provides the core encoding implementation, memoryless
-counterparts, usage examples and CPU tests. It does not bundle model weights,
-datasets, simulator installations or experiment outputs.
+This repository includes the **NumPy encoding library**, memoryless baselines,
+usage examples, CPU tests and the complete project website. The animation
+above shows the website's scripted USB-C and charger insertion application;
+recorded Memoryless–CarryQ comparisons are available on the project page.
 
 ## Installation
 
 Requires Python 3.10 or newer and NumPy. No GPU is needed.
 
 ```bash
-git clone https://github.com/NEBULIS-Lab/shuaijun-feiyang-CVPR2027-CarryQ-code.git
-cd shuaijun-feiyang-CVPR2027-CarryQ-code
+git clone https://github.com/NEBULIS-Lab/CarryQ.git
+cd CarryQ
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -e .
@@ -110,17 +119,47 @@ python -m build
 Tests cover grid boundaries, clipping, chunk resets, categorical-coordinate
 handling, vector lookup and invalid inputs. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Project page
+## Project website
 
-The project page link will be added here when available.
+**https://nebulis-lab.com/CarryQ/**
+
+Explore the interactive insertion workcell, animated method explanations,
+recorded comparisons and experiment results. Both recorded 3D playback and
+live MuJoCo physics run directly in the page, with external and wrist cameras.
+
+Website source lives in [`web/`](web/); the static GitHub Pages build lives in
+[`docs/`](docs/). To develop locally with Node.js 22.12 or newer:
+
+```bash
+cd web
+npm ci
+npm run dev
+```
+
+Run `npm test` to check the website logic and `npm run build:pages` to rebuild
+`docs/`. See the [website guide](web/README.md) for recording and browser checks.
 
 ## Paper
 
 **Beyond Pointwise Accuracy: Temporal Error Structure in Robot Action Tokenization**
 
-The arXiv link and citation will be added when available.
+Shuaijun Liu, Feiyang You, Chenglong Zhang and Ningxin Su.<br>
+[Read the manuscript](https://nebulis-lab.com/CarryQ/paper.pdf) ·
+[Read the supplementary material](https://nebulis-lab.com/CarryQ/appendix.pdf).
+The arXiv identifier will be added when available.
+
+```bibtex
+@misc{carryq,
+  title = {Beyond Pointwise Accuracy: Temporal Error Structure in Robot Action Tokenization},
+  author = {Liu, Shuaijun and You, Feiyang and Zhang, Chenglong and Su, Ningxin},
+  url = {https://nebulis-lab.com/CarryQ},
+  note = {Manuscript; arXiv identifier forthcoming}
+}
+```
 
 ## License
 
 The code is released under the [MIT License](LICENSE). External models,
-tokenizers and datasets retain their respective licenses.
+tokenizers and datasets retain their respective licenses. Website asset credits
+are preserved in [`web/public/`](web/public/), including the Franka model, camera
+hardware and scanned surface materials.

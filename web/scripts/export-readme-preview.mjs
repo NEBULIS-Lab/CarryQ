@@ -1,5 +1,5 @@
 import { chromium } from 'playwright';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { access, mkdir, readFile, writeFile } from 'node:fs/promises';
 
 // Capture the existing saved-pose task illustration, without changing robot states.
 const url = process.argv[2] || 'http://127.0.0.1:38126/CarryQ/';
@@ -39,6 +39,11 @@ try {
     const time = Math.min(i / fps, duration);
     const task = time < 14.514 ? 'usb' : 'charger';
     const view = time < 4.75 || (time >= 14.514 && time < 18.5) ? 'overview' : task;
+    const file = `${String(i).padStart(4, '0')}.png`;
+    if (process.env.CARRYQ_CAPTURE_RESUME === 'true' && await access(output + '/' + file).then(() => true, () => false)) {
+      frames.push({file, time, view});
+      continue;
+    }
     if (view !== previousView) {
       await page.locator('#playback-view').selectOption(view);
       previousView = view;
@@ -49,14 +54,20 @@ try {
       }, task === 'usb' ? 'USB-C insertion' : 'Charger insertion');
       previousTask = task;
     }
-    await page.locator('#scene-time').fill(String(time));
+    // Use the native setter so an exact floating-point duration is accepted.
+    await page.locator('#scene-time').evaluate((input, value) => {
+      Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set.call(input, String(value));
+      input.dispatchEvent(new Event('input', {bubbles: true}));
+      input.dispatchEvent(new Event('change', {bubbles: true}));
+    }, time);
     await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
-    const file = `${String(i).padStart(4, '0')}.png`;
     await canvas.screenshot({ path: output + '/' + file, animations: 'disabled' });
     frames.push({ file, time, view });
     if (i % 24 === 0 || i === count - 1) console.log(`Captured ${i + 1}/${count}: ${time.toFixed(2)} s, ${task}`);
     if (process.env.CARRYQ_PREVIEW_ONLY === 'true') break;
   }
   if (errors.length) throw new Error(errors.join('\n'));
-  await writeFile(output + '/capture.json', JSON.stringify({ source: 'Recorded MuJoCo pose interpolation from the project application; scripted task illustration.', duration, fps, width: 860, height: 530, frames }, null, 2));
+  const firstFrame = await readFile(output + '/' + frames[0].file);
+  const width = firstFrame.readUInt32BE(16), height = firstFrame.readUInt32BE(20);
+  await writeFile(output + '/capture.json', JSON.stringify({ source: 'Recorded MuJoCo pose interpolation from the project application; scripted task illustration.', duration, fps, width, height, frames }, null, 2));
 } finally { await browser.close(); }
