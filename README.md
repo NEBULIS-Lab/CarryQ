@@ -13,10 +13,10 @@ The Hong Kong University of Science and Technology (Guangzhou)<br>
 <sup>✉</sup> Corresponding author: [ningxinsu@hkust-gz.edu.cn](mailto:ningxinsu@hkust-gz.edu.cn)
 
 [![Project website](https://img.shields.io/badge/Website-CarryQ-8080FF?style=flat&labelColor=252A38&logo=googlechrome&logoColor=white)](https://nebulis-lab.com/CarryQ/)
-[![Tests](https://img.shields.io/github/actions/workflow/status/NEBULIS-Lab/CarryQ/tests.yml?branch=main&label=Tests&style=flat&labelColor=252A38&color=8080FF&logo=githubactions&logoColor=white)](https://github.com/NEBULIS-Lab/CarryQ/actions/workflows/tests.yml)
-[![Python](https://img.shields.io/badge/Python-3.10%2B-8080FF?style=flat&labelColor=252A38&logo=python&logoColor=white)](#installation)
-[![License: MIT](https://img.shields.io/badge/License-MIT-8080FF?style=flat&labelColor=252A38)](LICENSE)
-[![arXiv](https://img.shields.io/badge/arXiv-Coming_soon-8080FF?style=flat&labelColor=252A38&logo=arxiv&logoColor=white)](#paper)
+[![Tests](https://img.shields.io/github/actions/workflow/status/NEBULIS-Lab/CarryQ/tests.yml?branch=main&label=Tests&style=flat&labelColor=252A38&color=3C8D82&logo=githubactions&logoColor=white)](https://github.com/NEBULIS-Lab/CarryQ/actions/workflows/tests.yml)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-557EBB?style=flat&labelColor=252A38&logo=python&logoColor=white)](#installation)
+[![License: MIT](https://img.shields.io/badge/License-MIT-9273B3?style=flat&labelColor=252A38)](LICENSE)
+[![arXiv](https://img.shields.io/badge/arXiv-Coming_soon-B56D93?style=flat&labelColor=252A38&logo=arxiv&logoColor=white)](#paper)
 
 [**Project website & interactive demo**](https://nebulis-lab.com/CarryQ/) · [**Paper**](https://nebulis-lab.com/CarryQ/paper.pdf) · [**Supplementary material**](https://nebulis-lab.com/CarryQ/appendix.pdf)
 
